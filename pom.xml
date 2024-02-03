@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>space.haobingo</groupId>
+    <artifactId>haobingo_springboot3</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>父工程-依赖定义</description>
+
+    <!-- 子模块  -->
+    <modules>
+        <module>haobingo_common</module>
+        <module>haobingo_support</module>
+        <module>haobingo_authentication</module>
+        <module>haobingo_start</module>
+    </modules>
+
+
+
+    <!-- 只定义版本   -->
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <springboot.version>3.2.2</springboot.version>
+        <druid.version>1.2.20</druid.version>
+        <mysql.version>8.3.0</mysql.version>
+
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <!--<mybatis-plus-gen.version>3.5.0</mybatis-plus-gen.version>-->
+
+        <hutool.version>5.8.25</hutool.version>
+        <lombok.version>1.18.30</lombok.version>
+        <daocao.version>1.0.0</daocao.version>
+        <jwt.version>0.9.1</jwt.version>
+        <jxb.version>2.3.1</jxb.version>
+        <redis.version>3.2.2</redis.version>
+        <fastjson2.version>2.0.43</fastjson2.version>
+    </properties>
+
+    <!--  dependencyManagement不会传递  -->
+    <dependencyManagement>
+        <dependencies>
+            <!--3.2.2-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <!--说明：当一个父pom中的dependencyManagement 标签中
+                需要导入另一个pom中的dependencyManagement的时候，
+                必须同时使用<scope>import</scope> 和 <type>pom</type>-->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--mysql 8.3.0-->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--德鲁伊 1.2.20-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--引入redis  redis 缓存引入 3.2.2-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${redis.version}</version>
+            </dependency>
+            <!--fastjson 2.0.43-->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+            <!--整合SpringSecurity 3.2.2-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!-- 集成mybatis-plus 3.5.5-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--是依赖冲突了,starter包里的extension和generator里面的extension冲突了,
+            去掉其中一个依赖就行了-->
+            <!--代码生成  3.5.0-->
+<!--            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-gen.version}</version>
+            </dependency>-->
+
+            <!--JWT(Json Web Token)登录支持-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <!-- 使用JWT的话JDK8以上需要添加此依赖 -->
+            <!--JAXB提供两种主要特性：将一个Java对象序列化为XML，
+            以及反向操作，将XML解析成Java对象。换句话说，
+            JAXB允许以XML格式存储和读取数据，
+            而不需要程序的类结构实现特定的读取XML和保存XML的代码。-->
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jxb.version}</version>
+            </dependency>
+
+            <!--Hutool是一个小而全的Java工具类库，
+            通过静态方法封装，降低相关API的学习成本，
+            提高工作效率，使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”。-->
+            <!--5.8.25-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!--1.18.30-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>
