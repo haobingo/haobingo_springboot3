@@ -3,14 +3,14 @@ package space.haobingo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-//@SpringBootApplication 来标注一个主程序类
-//说明这是一个Spring Boot应用
+/**
+ * @ Description: 项目启动类
+ * @ Author: 程序员好冰
+ * @ Date: 2024/02/03/20:54
+ */
 @SpringBootApplication
-public class haobingoSpringBoot3_Application {
-
+public class StartApplication {
     public static void main(String[] args) {
-        SpringApplication.run(haobingoSpringBoot3_Application.class, args);
+        SpringApplication.run(StartApplication.class, args);
     }
-
 }
