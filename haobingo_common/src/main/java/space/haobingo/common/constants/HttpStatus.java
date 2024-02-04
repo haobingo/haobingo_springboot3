@@ -1,4 +1,4 @@
-package space.haobingo.constants;
+package space.haobingo.common.constants;
 
 /**
  * @ Description： 自定义状态码

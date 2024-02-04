@@ -6,7 +6,7 @@
     <parent>
         <groupId>space.haobingo</groupId>
         <artifactId>haobingo_springboot3</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>haobingo_authentication</artifactId>
@@ -17,4 +17,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>space.haobingo</groupId>
+            <artifactId>haobingo_support</artifactId>
+        </dependency>
+
+
+    </dependencies>
 </project>

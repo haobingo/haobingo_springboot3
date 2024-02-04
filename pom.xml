@@ -6,14 +6,27 @@
 
     <groupId>space.haobingo</groupId>
     <artifactId>haobingo_springboot3</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <description>父工程-依赖定义</description>
 
     <!-- 子模块  -->
     <modules>
-        <module>haobingo_common</module>
-        <module>haobingo_support</module>
-        <module>haobingo_authentication</module>
+        <!--统一分装:响应状态码、自定义异常、自定义响应类 通用工具类  公共类 lombok hutool-->
+        <module>haobingo_common</module><!--被support模块引用-->
+        <!--分页插件、Redis、Spring Security、支付-->
+        <module>haobingo_support</module><!--被其它业务模块auth、user引用-->
+        <!--系统模块 业务模块-->
+        <!--包括：认证模块，用户模块，菜单模块，代码生成模块，支付模块，数据分析模块-->
+        <!--认证模块-->
+        <module>haobingo_authentication</module><!--被start模块引用-->
+
+
+
+
+
+
+
+        <!--启动类-->
         <module>haobingo_start</module>
     </modules>
 
@@ -33,19 +46,40 @@
 
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <!--<mybatis-plus-gen.version>3.5.0</mybatis-plus-gen.version>-->
-
         <hutool.version>5.8.25</hutool.version>
         <lombok.version>1.18.30</lombok.version>
-        <daocao.version>1.0.0</daocao.version>
+        <haobingo.version>1.0.0</haobingo.version>
         <jwt.version>0.9.1</jwt.version>
         <jxb.version>2.3.1</jxb.version>
         <redis.version>3.2.2</redis.version>
         <fastjson2.version>2.0.43</fastjson2.version>
+
+        <haobingo.version>1.0.0</haobingo.version>
     </properties>
 
     <!--  dependencyManagement不会传递  -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>space.haobingo</groupId>
+                <artifactId>haobingo_support</artifactId>
+                <version>${haobingo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>space.haobingo</groupId>
+                <artifactId>haobingo_common</artifactId>
+                <version>${haobingo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>space.haobingo</groupId>
+                <artifactId>haobingo_authentication</artifactId>
+                <version>${haobingo.version}</version>
+            </dependency>
+
+
+
             <!--3.2.2-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -91,7 +125,7 @@
             <!-- 集成mybatis-plus 3.5.5-->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <!--是依赖冲突了,starter包里的extension和generator里面的extension冲突了,

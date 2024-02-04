@@ -1,4 +1,4 @@
-package space.haobingo.exception;
+package space.haobingo.common.exception;
 
 import lombok.Getter;
 

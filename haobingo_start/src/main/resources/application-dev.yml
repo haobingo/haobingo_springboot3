@@ -1,0 +1,12 @@
+# 开发环境配置
+server:
+  port: 8080    # 配置端口为8080
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/haobingo_springboot3?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456

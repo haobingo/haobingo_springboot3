@@ -1,0 +1,6 @@
+# 这种语言以数据作为中心，而不是以标记语言为重点！
+spring:
+  application:
+    name: haobingo_springboot3
+  profiles:
+    active: dev # 通过active:属性来切换环境

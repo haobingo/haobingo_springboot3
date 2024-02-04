@@ -1,6 +1,6 @@
-package space.haobingo.response;
+package space.haobingo.common.response;
 
-import space.haobingo.constants.HttpStatus;
+import space.haobingo.common.constants.HttpStatus;
 
 import cn.hutool.core.util.ObjectUtil;
 import java.io.Serial;
